@@ -5,8 +5,11 @@ const orm = {
     let result = await db(`SELECT * FROM cookin`);
     return result;
   },
-  insertOne: function() {
-
+  insertOne: async function(table, newEntry) {
+    let queryString = `
+      INSERT INTO ?? SET ?`;
+    let result = await db(queryString,[[table],newEntry]);
+    return result;
   },
   updateOne: function() {
 

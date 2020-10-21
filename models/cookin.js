@@ -6,8 +6,9 @@ const cookin = {
     let result = await orm.selectAll();
     return result;
   },
-  create: function() {
-
+  create: async function(newMeal) {
+    let result= await orm.insertOne('cookin', newMeal);
+    return result;
   },
   update: function() {
 

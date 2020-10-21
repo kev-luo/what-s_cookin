@@ -6,7 +6,11 @@
           <div class="card-content" id="to-eat">
             {{#each meals}}
             {{#if demolished}}
-            <p class="title" data-value={{id}}>{{meal}}</p>
+            <p class="title">{{meal}} 
+              <span>
+                <button class="button" data-value={{id}}>Demolish</button>
+              </span>
+            </p>
             {{/if}}
             {{/each}}
           </div>
@@ -17,7 +21,11 @@
           <div class="card-content" id="eaten">
             {{#each meals}}
             {{#unless demolished}}
-            <p class="title" data-value={{id}}>{{meal}}</p>
+            <p class="title">{{meal}} 
+              <span>
+                <button class="button" data-value={{id}}>Delete</button>
+              </span>
+            </p>
             {{/unless}}
             {{/each}}
           </div>
@@ -27,18 +35,30 @@
   </div>
 </section>
 
-
-<section class="section">
-  <div class="container">
-    <div class="field">
-      <label class="label">Hungry?</label>
-      <div class="control">
-        <textarea class="textarea" placeholder="Of course you are"></textarea>
+<form action="/cookthis" method="POST">
+  <section class="section">
+    <div class="container">
+      <div class="field">
+        <label class="label">Hungry?</label>
+        <div class="control">
+          <textarea class="textarea" name = "meal" placeholder="Of course you are"></textarea>
+        </div>
+      </div>
+      <div class="field">
+        <div class="control">
+          <label class="radio">
+            <input type="radio" name="demolished" value=1>
+            Eat Now
+          </label>
+          <label class="radio">
+            <input type="radio" name="demolished" value=0>
+            Eat Later
+          </label>
+        </div>
+      </div>
+      <div class="field is-grouped is-grouped-centered control">
+        <button type="submit" class="button is-primary m-2">Submit</button>
       </div>
     </div>
-    <div class="field is-grouped is-grouped-centered control">
-      <button class="button is-primary m-2">Eat Now</button>
-      <button class="button is-primary m-2">Eat Later</button>
-    </div>
-  </div>
-</section>
+  </section>
+</form>
