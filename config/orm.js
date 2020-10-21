@@ -16,8 +16,13 @@ const orm = {
       UPDATE ?? SET demolished=1 WHERE id = ?`;
     let result = await db(queryString, [[table], mealId])
     return result;
+  },
+  deleteOne: async function(table, mealId) {
+    let queryString = `
+    DELETE FROM ?? WHERE id = ?`;
+    let result = await db(queryString, [[table], mealId])
+    return result;
   }
 }
-
 
 module.exports = orm;

@@ -77,6 +77,12 @@
 
   $("#eaten button").on("click", function(event) {
     event.preventDefault();
-    console.log($(this).data('value'))
+    let foodId = $(this).data('value');
+    $.ajax({
+      url: `/toss/${foodId}`,
+      type: 'DELETE'
+    }).then(res => {
+      location.reload();
+    })
   })
 </script>

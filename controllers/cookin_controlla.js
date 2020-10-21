@@ -21,4 +21,11 @@ cookinRoutes.put('/demolish/:id', async (req, res) => {
   res.send('hi');
 })
 
+cookinRoutes.delete('/toss/:id', async (req, res) => {
+  let foodId = req.params.id;
+  let tossFood = await cookin.delete(foodId);
+  console.log(tossFood);
+  res.send('bye');
+})
+
 module.exports = cookinRoutes;

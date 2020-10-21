@@ -14,8 +14,9 @@ const cookin = {
     let result = await orm.updateOne('cookin', mealId);
     return result;
   },
-  delete: function() {
-
+  delete: async function(mealId) {
+    let result = await orm.deleteOne('cookin', mealId);
+    return result;
   }
 }
 
