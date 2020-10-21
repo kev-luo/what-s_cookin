@@ -1,6 +1,7 @@
+const util = require('util');
 const mysql = require('mysql');
 
-const db = mysql.createConnection({
+const connection = mysql.createConnection({
   host: 'localhost',
   port: 3306, 
   user: 'kevin',
@@ -8,6 +9,6 @@ const db = mysql.createConnection({
   database: 'cookin_db'
 })
 
-db.connect(err => (err) ? console.log(err.stack) : console.log(db.threadId))
+const db = util.promisify(connection.query).bind(connection)
 
 module.exports = db;

@@ -1,6 +1,11 @@
 const express = require('express');
-// import cookin.js
+const cookin = require('../models/cookin');
+const cookinRoutes = express.Router();
 
-// create router here
+cookinRoutes.get('/', async (req,res) => {
+  let meals = await cookin.all();
 
-module.exports = {}
+  res.render('index', {meals});
+})
+
+module.exports = cookinRoutes;

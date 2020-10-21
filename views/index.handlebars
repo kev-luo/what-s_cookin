@@ -1,0 +1,44 @@
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <div class="card">
+          <div class="card-content" id="to-eat">
+            {{#each meals}}
+            {{#if demolished}}
+            <p class="title" data-value={{id}}>{{meal}}</p>
+            {{/if}}
+            {{/each}}
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="card">
+          <div class="card-content" id="eaten">
+            {{#each meals}}
+            {{#unless demolished}}
+            <p class="title" data-value={{id}}>{{meal}}</p>
+            {{/unless}}
+            {{/each}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container">
+    <div class="field">
+      <label class="label">Hungry?</label>
+      <div class="control">
+        <textarea class="textarea" placeholder="Of course you are"></textarea>
+      </div>
+    </div>
+    <div class="field is-grouped is-grouped-centered control">
+      <button class="button is-primary m-2">Eat Now</button>
+      <button class="button is-primary m-2">Eat Later</button>
+    </div>
+  </div>
+</section>

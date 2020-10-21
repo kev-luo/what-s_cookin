@@ -1,8 +1,9 @@
 const db = require('./connection');
 
 const orm = {
-  selectAll: function() {
-
+  selectAll: async function() {
+    let result = await db(`SELECT * FROM cookin`);
+    return result;
   },
   insertOne: function() {
 
@@ -11,5 +12,6 @@ const orm = {
 
   }
 }
+
 
 module.exports = orm;
