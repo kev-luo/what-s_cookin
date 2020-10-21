@@ -14,4 +14,11 @@ cookinRoutes.post('/cookthis', async (req, res) => {
   res.redirect('/');
 })
 
+cookinRoutes.put('/demolish/:id', async (req, res) => {
+  let foodId = req.params.id;
+  let demolishFood = await cookin.update(foodId);
+  console.log(demolishFood);
+  res.send('hi');
+})
+
 module.exports = cookinRoutes;

@@ -10,8 +10,9 @@ const cookin = {
     let result= await orm.insertOne('cookin', newMeal);
     return result;
   },
-  update: function() {
-
+  update: async function(mealId) {
+    let result = await orm.updateOne('cookin', mealId);
+    return result;
   },
   delete: function() {
 

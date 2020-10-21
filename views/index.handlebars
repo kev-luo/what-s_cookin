@@ -5,13 +5,13 @@
         <div class="card">
           <div class="card-content" id="to-eat">
             {{#each meals}}
-            {{#if demolished}}
-            <p class="title">{{meal}} 
+            {{#unless demolished}}
+            <p class="title">{{meal}}
               <span>
                 <button class="button" data-value={{id}}>Demolish</button>
               </span>
             </p>
-            {{/if}}
+            {{/unless}}
             {{/each}}
           </div>
         </div>
@@ -20,13 +20,13 @@
         <div class="card">
           <div class="card-content" id="eaten">
             {{#each meals}}
-            {{#unless demolished}}
+            {{#if demolished}}
             <p class="title">{{meal}} 
               <span>
                 <button class="button" data-value={{id}}>Delete</button>
               </span>
             </p>
-            {{/unless}}
+            {{/if}}
             {{/each}}
           </div>
         </div>
@@ -62,3 +62,21 @@
     </div>
   </section>
 </form>
+
+<script type="text/javascript">
+  $("#to-eat button").on("click", function(event) {
+    event.preventDefault();
+    let foodId = $(this).data('value');
+    $.ajax({
+      url: `/demolish/${foodId}`,
+      type: 'PUT'
+    }).then(res => {
+      location.reload();
+    })
+  })
+
+  $("#eaten button").on("click", function(event) {
+    event.preventDefault();
+    console.log($(this).data('value'))
+  })
+</script>
