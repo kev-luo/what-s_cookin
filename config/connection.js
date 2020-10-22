@@ -1,3 +1,4 @@
+require('dotenv').config();
 const util = require('util');
 const mysql = require('mysql');
 
@@ -6,7 +7,7 @@ const connection = mysql.createConnection({
   host: 'localhost',
   port: 3306, 
   user: 'kevin',
-  password: 'mipassword', 
+  password: process.env.mysqlP, 
   database: 'cookin_db'
 })
 

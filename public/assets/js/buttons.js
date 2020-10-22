@@ -1,6 +1,6 @@
 $(function() {
 
-  $("#to-eat button").on("click", function(event) {
+  $("#to-eat p").on("click", function(event) {
     event.preventDefault();
     let foodId = $(this).data('value');
     $.ajax({
@@ -11,7 +11,7 @@ $(function() {
     })
   })
 
-  $("#eaten button").on("click", function(event) {
+  $("#eaten p").on("click", function(event) {
     event.preventDefault();
     let foodId = $(this).data('value');
     $.ajax({
@@ -22,4 +22,8 @@ $(function() {
     })
   })
 
+  // $(".col p").on("click",function(event) {
+  //   event.preventDefault();
+  //   console.log('hello');
+  // })
 })

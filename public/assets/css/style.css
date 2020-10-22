@@ -8,8 +8,10 @@ html {
 }
 
 body {
-  background-image: url(bg.png);
+  background-image: url(../img/bg.png);
   background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .form {
@@ -30,6 +32,7 @@ textarea {
   border: 0px;
   border-radius: 15px;
   resize: vertical;
+  font-family: 'Libre Baskerville', serif;
 }
 
 textarea:focus {
@@ -45,6 +48,7 @@ textarea:focus {
 
 .btn-submit {
   font-weight: 750;
+  font-family: 'Libre Baskerville', serif;
   background: #4CAF50;
   color: white;
   border-radius: 25px;
@@ -70,12 +74,15 @@ textarea:focus {
   grid-template-rows: repeat(auto, 1fr);
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 20px;
+
 }
 
 .col {
   background: rgb(252, 239, 216);
   border-radius: 5px;
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  height: 400px;
+  overflow-y: auto;
 }
 
 .btn-display {
@@ -103,4 +110,10 @@ p:hover {
 .fa-utensils, .fa-trash {
   color: rgb(100, 100, 100);
   background: #fcefd8;
+}
+
+@media (max-width: 900px) {
+  .content {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
