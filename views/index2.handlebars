@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+  
+<div class="form">
+  <form action="/cookthis" method="POST">
+    <label class="label">Hungry?</label>
+    <textarea class="textarea" name = "meal" placeholder="Of course you are"></textarea>
+    <label class="radio"><input type="radio" name="demolished" value=1>Eat Now</label>
+    <label class="radio"><input type="radio" name="demolished" value=0>Eat Later</label>
+    <button type="submit" class="btn-submit">Save</button>
+  </form>
+</div>
+
+<div class="main-content">
+  <div class="content">
+    <div class="col">
+      <h2>Click to Eat</h2>
+      <p>hello<a class="btn-display" data-value={{id}}><i class="fas fa-utensils"></i></a> </p>
+      <p>hello<a class="btn-display" data-value={{id}}><i class="fas fa-utensils"></i></a> </p>
+      <p>hello<a class="btn-display" data-value={{id}}><i class="fas fa-utensils"></i></a> </p>
+    </div>
+    <div class="col">
+      <h2>Click to Toss</h2>
+      <p>hello<a class="btn-display" data-value={{id}}><i class="fas fa-trash fa-inverse"></i></a> </p>
+      <p>hello<a class="btn-display" data-value={{id}}><i class="fas fa-trash"></i></a> </p>
+      <p>hello<a class="btn-display" data-value={{id}}><i class="fas fa-trash"></i></a> </p>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(".col p").on("click",function(event) {
+    event.preventDefault();
+    console.log('hello');
+  })
+</script>
+</body>
+</html>
